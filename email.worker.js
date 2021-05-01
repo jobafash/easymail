@@ -1,6 +1,8 @@
 const EmailService = require('./email.service');
+const dotenv = require('dotenv');
 
 const queue = 'email-task';
+dotenv.config();
 
 const open = require('amqplib').connect(process.env.AMQP_SERVER);
 //console.log(process.env.AMQP_SERVER)
@@ -19,9 +21,8 @@ const consumeMessage = () => {
         const { to, subject, message } = JSON.parse(msg.content.toString());
         console.log(' [x] Received %s', to);
         // send email via sendgrid
-        EmailService.sendMail(to, subject, message).then(() => {
-          ch.ack(msg);
-        });
+        EmailService.sendMail(to, subject, message)
+        ch.ack(msg);
       }
     });
   })).catch(error => console.warn(error));

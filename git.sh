@@ -8,7 +8,9 @@
 
 #source ./sendgrid.env
 git pull origin main
-git add .
-git commit -m "Chore: Add queuing(RabbitMQ)"
+git checkout -b "Message Queue Fix"
+git remote add origin https://github.com/jobafash/easymail.git
 git pull origin main
-git push -u origin main
+git add .
+git commit -m "Bug fix: Fix queuing issues"
+git push origin "Message Queue Fix"
