@@ -10,4 +10,4 @@
 git pull origin main
 git add .
 git commit -m "Bug fix: Fix queuing issues"
-git push origin "Fix mq"
+git push origin main
