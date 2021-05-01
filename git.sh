@@ -8,9 +8,6 @@
 
 #source ./sendgrid.env
 git pull origin main
-git checkout -b "Fix mq"
-git remote add origin https://github.com/jobafash/easymail.git
-git pull origin main
 git add .
 git commit -m "Bug fix: Fix queuing issues"
 git push origin "Fix mq"
