@@ -7,7 +7,8 @@
 # git push -u origin main
 
 #source ./sendgrid.env
+git pull origin main
 git add .
-git commit -m "Chore: "
+git commit -m "Chore: Add queuing(RabbitMQ)"
 git pull origin main
 git push -u origin main

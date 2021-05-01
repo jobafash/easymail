@@ -1,7 +1,5 @@
 const express = require('express');
-// require(dotenv.config());
-const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const { publishMessage } = require('./email.worker')
 
 const app = express();
 const port = 3000 || process.env.PORT;
@@ -13,23 +11,14 @@ app.post('/api/email', async (req, res, next) => {
     const { email, text } = req.body
     const msg = {
         to: email,
-        from: 'jobafash3@gmail.com',
-        subject: 'Sending with SendGrid is Fun',
-        text: text,
-        html: `<strong>${text}</strong>`,
+        subject: '[IMPORTANT] Testing API',
+        message: `<strong>${text}</strong>`,
       }
     try {
-        sgMail
-        .send(msg)
-        .then(() => {
-            console.log('Email sent')
-            res.status(200).json({"success": "Email sent"});
-          })
-          .catch((error) => {
-            console.error(error)
-          })
+        publishMessage(msg);
+        return res.status(200).json({"success": "Email sent"});   
     } catch (err) {
-        next(err);
+        next(err)
     }
 });
 
