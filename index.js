@@ -33,3 +33,5 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`API listening at http://localhost:${port}`)
 })
+
+module.exports = app;
