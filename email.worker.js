@@ -20,7 +20,7 @@ const consumeMessage = () => {
       if (msg !== null) {
         const { to, subject, message } = JSON.parse(msg.content.toString());
         console.log(' [x] Received %s', to);
-        // send email via sendgrid
+        // send email
         EmailService.sendMail(to, subject, message)
         ch.ack(msg);
       }

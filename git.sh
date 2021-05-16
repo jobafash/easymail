@@ -9,5 +9,5 @@
 #source ./sendgrid.env
 git pull origin main
 git add .
-git commit -m "Tests: Add unit test for sending email"
+git commit -m "Fallback mechanism"
 git push origin main
