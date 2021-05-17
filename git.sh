@@ -9,5 +9,5 @@
 #source ./sendgrid.env
 git pull origin main
 git add .
-git commit -m "Fallback mechanism"
+git commit -m "Refactoring..."
 git push origin main

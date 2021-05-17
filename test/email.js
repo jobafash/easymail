@@ -5,7 +5,8 @@ const app = require('../index');
 
 // Configure chai
 chai.use(chaiHttp);
-chai.should();describe("Emails", () => {
+chai.should();
+describe("Emails", () => {
     describe("POST /api/email", () => {
         // Test to send an email
         it("should send an email to the recipient", (done) => {
